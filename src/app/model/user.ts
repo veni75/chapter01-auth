@@ -4,6 +4,6 @@ export class User {
     last_name?: string;
     email?: string;
     password?: string;
-    role?: number;
+    role: number = 0;
     token?: string;
 }
