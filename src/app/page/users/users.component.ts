@@ -10,7 +10,7 @@ import { User } from 'src/app/model/user';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  list$: Observable<User | User[]> = this.userService.get();
+  list$: Observable<User | User[]> = (this.userService.get() as unknown as Observable<User[]>);
   cols: any[] = this.config.userColumns;
 
   constructor(

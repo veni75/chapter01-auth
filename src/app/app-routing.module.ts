@@ -7,6 +7,7 @@ import { UserEditComponent } from './page/user-edit/user-edit.component';
 import { UsersComponent } from './page/users/users.component';
 import { AuthGuardService } from './service/auth-guard.service';
 import { RoleGuardService } from './service/role-guard.service';
+import { InvestorsComponent } from 'src/app/page/investors/investors.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,14 @@ const routes: Routes = [
     canActivate:[AuthGuardService,RoleGuardService],
     data:{
       expectedRole:3,
+    }
+  },
+  {
+    path: 'investors',
+    component: InvestorsComponent,
+    canActivate: [AuthGuardService, RoleGuardService],
+    data: {
+      expectedRole: 2
     }
   },
   {

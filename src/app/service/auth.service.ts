@@ -24,7 +24,12 @@ export class AuthService {
     private http: HttpClient,
     private router: Router,
     private userService: UserService,
-  ) { }
+  ) { 
+    const storedUser = localStorage.getItem(this.storageName);
+    if(storedUser){
+      this.currentUserSubject.next(JSON.parse(storedUser));
+    }
+  }
 
   get currentUserValue(): User|null {
     return this.currentUserSubject.value;
